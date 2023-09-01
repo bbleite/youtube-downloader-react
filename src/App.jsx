@@ -1,5 +1,6 @@
 import { useRef, useState } from "react"
 import { youtube_parser } from "./utils";
+import axios from "axios";
 
 function App() {
   const inputUrlRef = useRef();
@@ -25,10 +26,14 @@ function App() {
     };
     
     axios(options)
-    .then(res => setUrlResult(res.data),
-      console.log(res),
-      console.log(res.data))
+    .then(res =>  {
+      setUrlResult(res.data.link)
+      console.log(res)})
     .catch(err => console.log(err))
+
+    console.log(urlResult);
+
+    inputUrlRef.current.value = '';
   }
 
   return (
@@ -45,7 +50,8 @@ function App() {
         <button type="submit" className="form_button">Search</button>
       </form>
 
-      <a href="" className="download_btn">Download MP3</a>
+      {urlResult ? <a href={urlResult} className="download_btn">Download MP3</a> : ''}
+      
     </section>
     </div>
   )
