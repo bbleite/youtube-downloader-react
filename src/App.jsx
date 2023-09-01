@@ -3,7 +3,7 @@ function App() {
 
   return (
     <div className="app">
-    <span>youtube2mp3</span>
+    <span className="logo">youtube2mp3</span>
     <section className="content">
       <h1 className="content_title">YouTube to MP3 Converter</h1>
       <p className="content_description">
@@ -15,7 +15,7 @@ function App() {
         <button type="submit" className="form_button">Search</button>
       </form>
 
-      <a href="" className="download-btn"></a>
+      <a href="" className="download_btn">Download MP3</a>
 
 
     </section>
